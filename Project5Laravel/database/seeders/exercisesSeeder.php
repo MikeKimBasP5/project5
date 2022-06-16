@@ -18,7 +18,7 @@ class exercisesSeeder extends Seeder
     {
         DB::table('exercises')->insert([
             'titleEN' => 'Push-ups',
-            'titleNL' => 'Push-ups',
+            'titleNL' => 'Opdrukken',
             'instructionEN' => 'Yes just do it!',
             'instructionNL' =>'Ja gewoon doen!',
             'media' =>'https://c.tenor.com/gI-8qCUEko8AAAAC/pushup.gif',
