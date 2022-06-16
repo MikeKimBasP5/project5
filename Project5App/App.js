@@ -19,7 +19,7 @@ const TabEN = createMaterialBottomTabNavigator();
 const StackNL = createStackNavigator();
 const StackEN = createStackNavigator();
 
-function MyTabsEN() {
+const MyTabsEN = () => {
   return (
     <TabEN.Navigator>
       <TabEN.Screen
@@ -58,7 +58,7 @@ function MyTabsEN() {
   );
 }
 
-function MyTabsNL() {
+const MyTabsNL = () => {
   return (
     <TabNL.Navigator>
       <TabNL.Screen
@@ -131,27 +131,10 @@ const StackInstructionNL = () => {
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Language / Taal</Text>
-      <Text style={styles.text}>Choose a language.</Text>
-      <Text style={styles.text}>Kies een taal.</Text>
-      <Text onPress={() => {MyTabsNL}} style={styles.btn}>Nederlands</Text>
-      <Text></Text>
-      <Text onPress={() => {MyTabsEN}} style={styles.btn}>English</Text>
-    </View>
+    <NavigationContainer theme={MyTheme}>
+      <MyTabsEN />
+    </NavigationContainer>
   );
-}
-
-const AppEN = () => {
-  <NavigationContainer theme={MyTheme}>
-    <MyTabsEN />
-  </NavigationContainer>
-}
-
-const AppNL = () => {
-  <NavigationContainer theme={MyTheme}>
-    <MyTabsNL />
-  </NavigationContainer>
 }
 
 const styles = StyleSheet.create({
