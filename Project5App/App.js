@@ -104,10 +104,10 @@ const StackInstructionEN = () => {
         headerShown: false
       }}>
       <StackEN.Screen
-        name='Exercises'
+        name='ExercisesScreen'
         component={Exercises} />
       <StackEN.Screen
-        name='Exercise'
+        name='ExerciseScreen'
         component={Exercise} />
     </StackEN.Navigator>
   )
@@ -137,39 +137,11 @@ const App = () => {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-  },
-  header: {
-    marginTop: 50,
-    fontSize: 40,
-    color: 'black',
-  },
-  text: {
-    top: '10%',
-    textAlign: 'center',
-    color: 'black',
-    fontSize: 30,
-  },
-  btn: {
-    top: '20%',
-    textAlign: 'center',
-    color: 'black',
-    backgroundColor: 'lightgray',
-    padding: 5,
-    width: 250,
-    fontSize: 30,
-  }
-});
-
 const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'lightblue',
+    primary: '#bfedef',
   },
 };
 
