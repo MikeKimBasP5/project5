@@ -89,9 +89,29 @@ class exercisesSeeder extends Seeder
         DB::table('exercises')->insert([
             'titleEN' => 'Lunge',
             'titleNL' => 'Lunge',
-            'instructionEN' => '',
-            'instructionNL' =>'',
-            'media' =>'',
+            'instructionEN' => 'Step 1: Start with your feet apart. \n Step 2: Bow your knees to 90 degrees as you lower yourself. Remember to keep your chest right. \n Step 4: Then, push off from your front leg to go back to the starting position.',
+            'instructionNL' =>'Stap 1: Begin met je voeten uit elkaar. \n Stap 2: Stap naar voren zodat een been voor je lichaam staat. \n Stap 3: Buig je knieën tot ongeveer 90 graden en zak naar beneden. Houd je borst recht. \n Stap 4: Duw je eigen dan terug met je voorste been naar de start positie.',
+            'media' =>'https://c.tenor.com/fWiC9Ze5eUMAAAAC/lunges-exercise.gif',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('exercises')->insert([
+            'titleEN' => 'Wall sit',
+            'titleNL' => 'Muur zitten',
+            'instructionEN' => 'Step 1: Put your back against a wall with your feet apart / about 2 steps from the wall. \n Step 2: Slowly slide your back down the wall until your thighs are equal to the ground. \n Step 3: Keep your back against the wall. \n Step 4: Hold this position for like 20 to 60 seconds. \n Step 5: Go slowly back up the wall. \n Step 6: Rest and repeat the exercise multiple times.',
+            'instructionNL' =>'Stap 1: Plaats je rug tegen de muur met je benen apart van elkaar / ongeveer 2 stappen van de muur af. \n Stap 2: Glijd langzaam naar beneden, totdat je dijen gelijk zijn aan de grond. \n Stap 3: Houd je rug tegen de muur. \n Stap 4: Houd deze positie vast voor 20 tot 60 seconden. \n Stap 5: Ga weer langzaam omhoog. \n Stap 6: Rust uit en herhaal de oefening meerdere malen.',
+            'media' =>'https://thumbs.gfycat.com/NauticalDiligentHorsemouse-max-1mb.gif',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('exercises')->insert([
+            'titleEN' => 'Crunch',
+            'titleNL' => 'Crunch',
+            'instructionEN' => 'Step 1: Lay down on your back. Set your feet on the ground. Bend your knees and place your arms across your torso. \n Step 2: Lift your upper body, keep your head and neck relaxed. \n Step 3: Return to the starting position. \n Step 4: Repeat the movement.',
+            'instructionNL' =>'Stap 1: Ga op je rug liggen. Plaats je voeten op de grond. Buig je knieën en plaats je armen gekruist over je torso. \n Stap 2: Haal je bovenlichaam omhoog en houd je hoofd en nek ontspannen. \n Stap 3: Ga terug naar de start positie. \n Stap 4: Herhaal de bewegingen.',
+            'media' =>'https://i0.wp.com/post.healthline.com/wp-content/uploads/2019/09/400x400_Crunches.gif',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

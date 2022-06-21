@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
-Route::apiResource('excercises', ExercisesController::class)->parameters(['excercises' => 'excercise'])->only(['index']);
+Route::apiResource('exercises', ExercisesController::class)->parameters(['exeercises' => 'excercise'])->only(['index','show']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
