@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Linking } from 'react-native';
 
 const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Instellingen</Text>
+      <Text style={styles.btn} onPress={ ()=>{ Linking.openURL('https://mikehaenen.nl/project5/public/login')}}>Login</Text>
+      <Text></Text>
+      <Text style={styles.btn}>English</Text>
     </View>
   );
 }
@@ -11,7 +14,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: '#e9f7f7',
       alignItems: 'center',
   },
   header:{
@@ -25,6 +28,16 @@ const styles = StyleSheet.create({
       color: 'black',
       fontSize: 30,
   },  
+  btn: {
+    top: '30%',
+    textAlign: 'center',
+    color: 'black',
+    backgroundColor: '#BBC7CE',
+    borderRadius: 30,
+    padding: 5,
+    width: 250,
+    fontSize: 30,
+  }
 });
 
 export default App;

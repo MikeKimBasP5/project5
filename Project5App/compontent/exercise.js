@@ -3,7 +3,7 @@ import React, { } from 'react';
 import 'react-native-gesture-handler';
 
 const ExerciseScreen = ({ route, navigation }) => {
-  let test = route.params.data.instructionEN.replace(/\\n/g,'\n');
+  let text = route.params.data.instructionEN.replace(/\\n/g,'\n');
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{route.params.data.titleEN}</Text>
@@ -11,7 +11,7 @@ const ExerciseScreen = ({ route, navigation }) => {
         style={{ width: '100%', height: '40%' }}
         source={{ uri: route.params.data.media }}
       />
-      <Text style={styles.text}>{test}</Text>
+      <Text style={styles.text}>{text}</Text>
     </View>
   );
 }
