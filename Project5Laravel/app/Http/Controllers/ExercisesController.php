@@ -16,7 +16,15 @@ class ExercisesController extends Controller
     {
         return exercise::all();
     }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexWeb()
+    {
+        return view('exercises.index', ['exercises' => exercise::all()]);
+    }
     /**
      * Show the form for creating a new resource.
      *
