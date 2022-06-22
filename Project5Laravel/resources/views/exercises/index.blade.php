@@ -8,7 +8,9 @@
         @foreach ($exercises as $exercise)
             <div class="container">
                 <div class="grid grid-cols-1 md:grid-cols-6">
-                    {{ $exercise->titleEN }}
+                    <p>{{ $exercise->titleEN }}</p>
+                    <p>{{ $exercise->titleNL }}</p>
+                    {{ $exercise->instructionNL }}
                     <div class="inline-flex gap-1 mb-1">
                         <form  method="get">
                             <x-button class="ml-3 bg-blue-500 w-32">
