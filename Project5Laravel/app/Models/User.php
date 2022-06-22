@@ -50,4 +50,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(roles::class);
     }
+    public function hasRole(String $role)
+    {
+        if(auth()->user()){
+            $userId = auth()->user()->id;
+            $roleId = Roles::where('name', $role)->first()->id;
+            $userRole = User::where('role_id', $roleId)
+                ->where('id', $userId)
+                ->get();
+            return $userRole->count() > 0;
+        }
+    }
 }

@@ -16,7 +16,6 @@
                             <x-button class="ml-3 bg-blue-500 w-32">
                                 {{ __('Wijzig') }}
                             </x-button>
-                            {{-- <button type="submit" name="edit" class="">Wijzig</button> --}}
                         </form>
                         <form  method="post">
                             @method('delete')

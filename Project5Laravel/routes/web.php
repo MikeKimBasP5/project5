@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExercisesController;
+use App\Http\Controllers\PerformanceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,6 @@ Route::group(['middleware'=>'auth'], function() {
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
     Route::get('/exercises', [ExercisesController::class, 'indexWeb'])->name('exercises.index');
+    Route::get('/performances', [PerformanceController::class, 'indexWeb'])->name('performances.index');
 });
 require __DIR__.'/auth.php';
