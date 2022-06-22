@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View, Button, Linking } from 'react-native';
 
 const App = () => {

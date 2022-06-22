@@ -8,7 +8,7 @@ import About from './compontent/about';
 import Exercise from './compontent/exercise';
 import Exercises from './compontent/exercises';
 import Instellingen from './compontent/instellingen';
-import Language from './compontent/Language';
+import LanguageScreen from './compontent/Language';
 import Oefening from './compontent/oefening';
 import Oefeningen from './compontent/oefeningen';
 import Over from './compontent/over';
@@ -120,19 +120,26 @@ const StackInstructionNL = () => {
         headerShown: false
       }}>
       <StackNL.Screen
-        name='Oefeningen'
+        name='OefeningenScreen'
         component={Oefeningen} />
       <StackNL.Screen
-        name='Oefening'
+        name='OefeningScreen'
         component={Oefening} />
     </StackNL.Navigator>
   )
 }
 
-const App = () => {
+const AppEN = () => {
   return (
     <NavigationContainer theme={MyTheme}>
       <MyTabsEN />
+    </NavigationContainer>
+  );
+}
+const AppNL = () => {
+  return (
+    <NavigationContainer theme={MyTheme}>
+      <MyTabsNL />
     </NavigationContainer>
   );
 }
@@ -145,4 +152,4 @@ const MyTheme = {
   },
 };
 
-export default App;
+export default AppNL;
