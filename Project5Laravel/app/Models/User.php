@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(exercise::class);
     }
+    public function roles()
+    {
+        return $this->belongsTo(roles::class);
+    }
 }
