@@ -25,5 +25,6 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('/adminpanel', function () {return view('dashboard');})->name('adminpanel');
     Route::get('/exercises', [ExercisesController::class, 'indexWeb'])->name('exercises.index');
     Route::get('/performances', [PerformanceController::class, 'indexWeb'])->name('performances.index');
+    Route::get('/performances/{id}', [PerformanceController::class, 'showWeb'])->Name('performances.show');
 });
 require __DIR__.'/auth.php';

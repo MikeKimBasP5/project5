@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function excercise()
     {
-        return $this->belongsTo(exercise::class);
+        return $this->belongsToMany(exercise::class);
     }
     public function roles()
     {

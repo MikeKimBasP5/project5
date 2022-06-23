@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class performance extends Model
 {
     use HasFactory;
+    public function exercise()
+    {
+        return $this->belongsTo(exercise::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(user::class);
+    }
 }

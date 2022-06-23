@@ -14,4 +14,8 @@ class exercise extends Model
     {
         return $this->Hasmany(User::class);
     }
+    public function performance()
+    {
+        return $this->hasMany(performance::class);
+    }
 }
