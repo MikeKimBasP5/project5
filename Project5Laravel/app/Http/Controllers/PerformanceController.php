@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\exercise;
 use App\Models\performance;
+use App\Models\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,10 +28,11 @@ class PerformanceController extends Controller
     {
             if(Auth::user()->hasRole('admin')){
 
-                return view('performances.index', ['performances' => performance::all()]);
+                return view('performances.index', ['performances' => performance::all(), 'exercise' => exercise::all(), 'user' =>User::all()]);
             }else{
                 $id = Auth::id();
-                return view('performances.index', ['performances' => performance::all()->where('user_id', $id)]);
+                return view('performances.index', ['performances' => performance::all()->where('user_id', $id), 'exercise' => exercise::all()]);
+
             }
 
     }
@@ -65,7 +68,32 @@ class PerformanceController extends Controller
     {
         //
     }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function showWeb($id)
+    {
+        if (performance::find($id) === null) {
+            return redirect()->route('performance.index');
+        }
+        else{
+            if(Auth::user()->hasRole('admin')){
+                return view('performances.show', ['performance' => performance::find($id),
+                    'user' => User::all(),
+                    'exercise' => exercise::all()
+                ]);
+            }
+            else{
+                return view('performances.show', ['performance' => performance::find($id),
+                    'exercise' => exercise::all()
+                ]);
+            }
 
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *
