@@ -25,7 +25,7 @@ class PerformanceController extends Controller
     public function indexWeb()
     {
             if(Auth::user()->hasRole('admin')){
-                dd(performance::all());
+
                 return view('performances.index', ['performances' => performance::all()]);
             }else{
                 $id = Auth::id();
