@@ -10,6 +10,7 @@
             <tr>
                 {{--If the logged in user is an admin.--}}
                 @if(Auth::check() && Auth::user()->hasRole("admin"))
+                    <th>id</th>
                     <th>User id</th>
                     <th>User</th>
                 @endif
@@ -18,13 +19,13 @@
                 <th>date</th>
                 <th>reps</th>
                 <th>actions</th>
-                <th></th>
             </tr>
         @foreach($performances as $performance)
 
             <tr onClick="document.location.href='{{route('performances.show',[$performance->id])}}'" class="hover:bg-blue-400 hover:cursor-pointer">
                 {{--If the logged in user is an admin.--}}
                 @if(Auth::check() && Auth::user()->hasRole("admin"))
+                    <td>{{$performance->id}}</td>
                     <td>{{$performance->user['id']}}</td>
                     <td>{{$performance->user['name']}}</td>
                 @endif
@@ -39,7 +40,7 @@
                             {{ __('Edit') }}
                         </x-button>
                     </form>
-                    <form method="post">
+                    <form method="post" action="{{ route('performances.destroy',$performance['id'])}}">
                         @method('delete')
                         @csrf
                         <x-button class="ml-3 bg-red-500 w-30">
@@ -55,10 +56,9 @@
 
     </div>
 
-    <form method="post" class="text-center">
-        @method('delete')
+    <form action="" class="text-center">
         @csrf
-        <x-button class="ml-3 bg-green-500 w-5/6 justify-center">
+        <x-button class="ml-3 bg-green-500 w-full justify-center">
             {{ __('Add') }}
         </x-button>
     </form>
