@@ -56,7 +56,7 @@
 
     </div>
 
-    <form action="" class="text-center">
+    <form method="get" action="{{route('performances.create')}}" class="text-center">
         @csrf
         <x-button class="ml-3 bg-green-500 w-full justify-center">
             {{ __('Add') }}
