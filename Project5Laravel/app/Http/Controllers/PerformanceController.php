@@ -53,7 +53,7 @@ class PerformanceController extends Controller
      */
     public function createWeb()
     {
-        return view('performances.create');
+        return view('performances.create',['exercises' => exercise::all()]);
     }
     /**
      * Store a newly created resource in storage.
@@ -63,9 +63,22 @@ class PerformanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeWeb(Request $request)
+    {
 
+        $request->merge(["startTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['startTime']))]);
+        $request->merge(["finishTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['finishTime']))]);
+        performance::create($request->except('_token'));
+        return redirect()->route('performances.index');
+    }
     /**
      * Display the specified resource.
      *
