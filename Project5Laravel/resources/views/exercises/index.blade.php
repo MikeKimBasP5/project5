@@ -34,6 +34,10 @@
             @endforeach
 
         </table>
-        <x-button class="cursor-pointer bg-green-400 place-content-center">Create</x-button>
+        <form method="get" action="{{route('exercises.create')}}" class="text-center">
+        <x-button class="ml-3 bg-green-500 w-full justify-center">
+            {{ __('Add') }}
+        </x-button>
+    </form>
     </div>
 @endsection

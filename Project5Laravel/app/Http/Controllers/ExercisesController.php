@@ -35,6 +35,16 @@ class ExercisesController extends Controller
         //
     }
 
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function createWeb()
+    {
+        return view('exercises.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,6 +54,18 @@ class ExercisesController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeWeb(Request $request)
+    {
+        exercise::create($request->except('_token'));
+        return redirect()->route('exercises.index');
     }
 
     /**
