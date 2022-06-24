@@ -9,9 +9,10 @@
                         <a href="{{ route('adminpanel') }}">
                     @else
                     <a href="{{ route('dashboard') }}">
-                        @endif
+
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
+                    @endif
                 </div>
 
                 <!-- Navigation Links -->
@@ -26,10 +27,10 @@
                             {{ __('Home') }}
                         </x-nav-link>
 
-                </div>
+
                     @endif
                 </div>
-            </div>
+                </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
