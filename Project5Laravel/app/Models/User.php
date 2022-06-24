@@ -54,7 +54,7 @@ class User extends Authenticatable
     {
         if(auth()->user()){
             $userId = auth()->user()->id;
-            $roleId = Roles::where('name', $role)->first()->id;
+            $roleId = roles::where('name', $role)->first()->id;
             $userRole = User::where('role_id', $roleId)
                 ->where('id', $userId)
                 ->get();
