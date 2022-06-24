@@ -13,6 +13,7 @@ import Oefening from './compontent/oefening';
 import Oefeningen from './compontent/oefeningen';
 import Over from './compontent/over';
 import Settings from './compontent/settings';
+import web from './compontent/web';
 
 const TabNL = createMaterialBottomTabNavigator();
 const TabEN = createMaterialBottomTabNavigator();
@@ -45,7 +46,7 @@ const MyTabsEN = () => {
       />
       <TabEN.Screen
         name="Settings"
-        component={Settings}
+        component={StackSettingsEN}
         options={{
           headerShown: false,
           tabBarLabel: 'Settings',
@@ -84,7 +85,7 @@ const MyTabsNL = () => {
       />
       <TabNL.Screen
         name="Instellingen"
-        component={Instellingen}
+        component={StackSettingsNL}
         options={{
           headerShown: false,
           tabBarLabel: 'Instellingen',
@@ -128,7 +129,36 @@ const StackInstructionNL = () => {
     </StackNL.Navigator>
   )
 }
-
+const StackSettingsNL = () => {
+    return (
+        <StackNL.Navigator
+            screenOptions={{
+                headerShown: false
+            }}>
+            <StackNL.Screen
+                name='instellingen'
+                component={Instellingen} />
+            <StackNL.Screen
+                name='web'
+                component={web} />
+        </StackNL.Navigator>
+    )
+}
+const StackSettingsEN = () => {
+    return (
+        <StackEN.Navigator
+            screenOptions={{
+                headerShown: false
+            }}>
+            <StackEN.Screen
+                name='settings'
+                component={Settings} />
+            <StackEN.Screen
+                name='web'
+                component={web} />
+        </StackEN.Navigator>
+    )
+}
 const AppEN = () => {
   return (
     <NavigationContainer theme={MyTheme}>

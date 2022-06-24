@@ -5,7 +5,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Settings</Text>
-      <Text style={styles.btn} onPress={ ()=>{ Linking.openURL('https://mikehaenen.nl/project5/public/login')}}>Login</Text>
+        <Text style={styles.btn} onPress={() => { navigation.navigate("web") }}>Login</Text>
       <Text></Text>
       <Text style={styles.btn}>Nederlands</Text>
     </View>

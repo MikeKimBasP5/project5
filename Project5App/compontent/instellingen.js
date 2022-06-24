@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Linking } from 'react-native';
 
-const App = () => {
+const App = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Instellingen</Text>
-      <Text style={styles.btn} onPress={ ()=>{ Linking.openURL('https://mikehaenen.nl/project5/public/login')}}>Login</Text>
+      <Text style={styles.btn} onPress={() => { navigation.navigate("web") }}>Login</Text>
       <Text></Text>
       <Text style={styles.btn}>English</Text>
     </View>
