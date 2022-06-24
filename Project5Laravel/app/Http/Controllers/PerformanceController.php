@@ -28,7 +28,7 @@ class PerformanceController extends Controller
     {
             if(Auth::user()->hasRole('admin')){
 
-                return view('performances.index', ['performances' => performance::all(), 'exercise' => exercise::all(), 'user' =>User::all()]);
+                return view('performances.index', ['performances' => performance::all(), 'exercise' => exercise::all(), 'users' =>User::all()]);
             }else{
                 $id = Auth::id();
                 return view('performances.index', ['performances' => performance::all()->where('user_id', $id), 'exercise' => exercise::all()]);
@@ -151,6 +151,14 @@ class PerformanceController extends Controller
     }
 public function indexFunctionWeb(Request $request, $id)
 {
-    return performance::where('user_id',$id)->get();
+    if (Auth::user()->hasRole('admin')) {
+        return view('performances.usershow', ['performances' => performance::where('user_id', $id)->get(),
+            'exercise' => exercise::all(),
+            'user' => User::all()
+        ]);
+    }
+    else{
+        return redirect()->route('performances.index');
+    }
 }
 }
