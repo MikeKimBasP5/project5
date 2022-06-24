@@ -7,22 +7,75 @@
     @if(Auth::user()->id === (int)$performance->user_id || Auth::user()->hasRole('admin'))
         {{--If the logged in user is a admin--}}
         @if(Auth::user()->hasRole('admin'))
-            <h1 class="text-2xl">User details:</h1>
-            <p>User id: {{$performance->user['id']}}</p>
-            <p>Name:{{$performance->user['name']}}</p>
-            <p>Email: {{$performance->user['email']}}</p>
-            <h1 class="text-2xl">Performance</h1>
-            <p>Perfromance id: {{$performance->id}}</p>
+        <table class="text-left flex justify-center">
+            <tr>
+                <th>User details:</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>User id:</td>
+                <td style="width: 15vw;"></td>
+                <td>{{$performance->user['id']}}</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td></td>
+                <td>{{$performance->user['name']}}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td></td>
+                <td>{{$performance->user['email']}}</td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Performance:</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Performance id:</td>
+                <td></td>
+                <td>{{$performance->id}}</td>
+            </tr>
+        </table>
+        <br>
         @endif
-{{--What the normal user sees and the admin.--}}
-<p>Exercise name: {{$performance->exercise['titleEN']}}</p>
-<p>Date of exercise: {{$performance->date}}</p>
-<p>Start time: {{date('H:i:s', strtotime($performance->startTime))}}</p>
-<p>Finish time: {{date('H:i:s', strtotime($performance->finishTime))}}</p>
-<p>Reps: {{$performance->reps}}</p>
 
+        {{--What the normal user sees and the admin.--}}
+        <table class="flex justify-center">
+            <tr>
+                <td>Exercise name:</td>
+                <td style="width: 15vw;"></td>
+                <td>{{$performance->exercise['titleEN']}}</td>
+            </tr>
+            <tr>
+                <td>Date of exercise:</td>
+                <td></td>
+                <td>{{$performance->date}}</td>
+            </tr>
+            <tr>
+                <td>Start time:</td>
+                <td></td>
+                <td>{{date('H:i:s', strtotime($performance->startTime))}}</td>
+            </tr>
+            <tr>
+                <td>Finish time:</td>
+                <td></td>
+                <td>{{date('H:i:s', strtotime($performance->finishTime))}}</td>
+            </tr>
+            <tr>
+                <td>Reps:</td>
+                <td></td>
+                <td>{{$performance->reps}}</td>
+            </tr>
+        </table>
 
-    @else
-        Not a valid link.
-@endif
+        @else
+            Not a valid link.
+        @endif
 @endsection

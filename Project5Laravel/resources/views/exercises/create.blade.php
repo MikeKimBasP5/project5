@@ -17,7 +17,7 @@
             <label for="instructionNL">InstructionNL:</label>
             <textarea class="bg-gray-200" name="instructionNL" type="text"></textarea>
             <label for="media">Media:</label>
-            <input class="bg-gray-200"  name="media" type="text">
+            <input class="bg-gray-200"  name="media" type="url">
 
             <br>
             <x-button class="cursor-pointer bg-green-400 ">Create</x-button>
