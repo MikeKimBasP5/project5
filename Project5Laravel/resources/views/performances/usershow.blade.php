@@ -4,16 +4,7 @@
 @endsection
 
 @section('content')
-{{-- "id" => 4
-    "date" => "2022-06-23"
-    "startTime" => "2022-06-23 21:33:00"
-    "finishTime" => "2022-06-23 21:34:00"
-    "reps" => 32
-    "user_id" => 1
-    "exercise_id" => 1
-    "created_at" => "2022-06-23 19:30:03"
-    "updated_at" => "2022-06-23 19:30:03"
-    --}}
+
 <div class="container items-center">
     <h1></h1>
     <table class="md:table-fixed w-full text-center" >

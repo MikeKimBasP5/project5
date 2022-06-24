@@ -12,13 +12,6 @@
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <style>
-            body{
-                background-image: url('{{URL::to('/')}}/images/back.jpg');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-
         </style>
 
         <!-- Scripts -->
