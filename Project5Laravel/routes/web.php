@@ -29,5 +29,6 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('/performances/{id}', [PerformanceController::class, 'showWeb'])->Name('performances.show');
     Route::post('/performances/create',[PerformanceController::class, 'storeWeb'])->Name('performances.store');
     Route::delete('/performances/{id}', [PerformanceController::class, 'destroy'])->Name('performances.destroy');
+    Route::get('/users/{id}/performances', [PerformanceController::class, 'indexFunctionWeb'])->Name('performances.indexfunction');
 });
 require __DIR__.'/auth.php';

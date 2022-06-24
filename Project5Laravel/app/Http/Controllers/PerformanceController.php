@@ -149,4 +149,8 @@ class PerformanceController extends Controller
         performance::destroy($id);
         return redirect()->route('performances.index');
     }
+public function indexFunctionWeb(Request $request, $id)
+{
+    return performance::where('user_id',$id)->get();
+}
 }
