@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\exercise;
 use App\Models\performance;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,7 +13,7 @@ class UserController extends Controller
 {
     public function indexFunction(Request $request, $id)
     {
-        return performance::where('user_id',$id)->get(); 
+        return performance::where('user_id', $id)->get();
     }
 
     /**
@@ -21,10 +23,10 @@ class UserController extends Controller
      */
     public function indexWeb()
     {
-        if(Auth::user()->hasRole('admin')){
+        if (Auth::user()->hasRole('admin')) {
 
             return view('users.index', ['users' => User::all()]);
-        }else{
+        } else {
             $id = Auth::id();
             return redirect()->route('performances.index');
         }
@@ -35,7 +37,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createWeb()
     {
         //
     }
@@ -57,9 +59,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showWeb($id)
     {
-        //
+        return view('users.show', [
+            'user' => User::find($id),
+        ]);
+        //Role doesn't work
+        if (performance::find($id) === null) {
+            return view('exercises.index', ['exercises' => exercise::all()]);
+        } else {
+            if (Auth::user()->hasRole('admin')) {
+                return view('users.show', [
+                    'user' => User::find($id),
+                ]);
+            } else {
+                return view('exercises.index', ['exercises' => exercise::all()]);
+            }
+        }
     }
 
     /**
@@ -68,7 +84,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editWeb($id)
     {
         //
     }
@@ -80,7 +96,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateWeb(Request $request, $id)
     {
         //
     }
@@ -91,7 +107,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyWeb($id)
     {
         //
     }

@@ -48,10 +48,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //users ofzo
     Route::get('/users', [UserController::class, 'indexWeb'])->name('users.index');
+    Route::get('/users/{id}', [UserController::class, 'showWeb'])->Name('users.show');
     Route::get('/users/create', [UserController::class, 'createWeb'])->Name('users.create');
-    Route::put('/users/{id}', [UserController::class, 'update'])->Name('users.update');
-    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->Name('users.edit');
-    Route::delete('/users/{id}', [UserController::class, 'destroy'])->Name('users.destroy');
+    Route::put('/users/{id}', [UserController::class, 'updateWeb'])->Name('users.update');
+    Route::get('/users/{id}/edit', [UserController::class, 'editWeb'])->Name('users.edit');
+    Route::delete('/users/{id}', [UserController::class, 'destroyWeb'])->Name('users.destroy');
 
 });
 require __DIR__ . '/auth.php';

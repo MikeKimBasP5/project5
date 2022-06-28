@@ -12,7 +12,7 @@
             <th>Email</th>
         </tr>
         @foreach ($users as $user)
-        <tr>
+        <tr onClick="document.location.href='{{route('users.show',[$user->id])}}'" class="hover:bg-blue-400 hover:cursor-pointer">
         <td>{{ $user->id }}</td>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
