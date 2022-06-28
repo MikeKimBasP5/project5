@@ -7,28 +7,46 @@
 
 <div class="container items-center">
     <h1></h1>
-    <table class="md:table-fixed w-full text-center" >
+    <table class="sm: text-sm md:table-fixed w-full text-center" >
+    @foreach($performances as $performance)
+    <tr class="border">
+        <tr>
+            <td><br></td>
+        </tr>  
         <tr>
             <th>id</th>
-            <th>Date</th>
+            <td>{{$performance->id}}</td>
+            <td>&nbsp;</td>
             <th>Start time</th>
-            <th>Finish time</th>
-            <th>Reps</th>
-            <th>User</th>
-            <th>exercise En</th>
-            <th>exercise NL</th>
+            <td>{{date('H:i:s', strtotime($performance->startTime))}}</td>
         </tr>
-@foreach($performances as $performance)
-            <tr>
-                <td>{{$performance->id}}</td>
-                <td>{{$performance->date}}</td>
-                <td>{{date('H:i:s', strtotime($performance->startTime))}}</td>
-                <td>{{date('H:i:s', strtotime($performance->finishTime))}}</td>
-                <td>{{$performance->reps}}</td>
-                <td>{{$performance->user['name']}}</td>
-                <td>{{$performance->exercise['titleEN']}}</td>
-                <td>{{$performance->exercise['titleNL']}}</td>
-            </tr>
-@endforeach
+        <tr>
+            <th>Date</th>
+            <td>{{$performance->date}}</td>
+            <td></td>
+            <th>Finish time</th>
+            <td>{{date('H:i:s', strtotime($performance->finishTime))}}</td>
+        </tr>
+        <tr>
+            <th>Reps</th>
+            <td>{{$performance->reps}}</td>
+            <td></td>
+            <th>User</th>
+            <td>{{$performance->user['name']}}</td>
+        </tr>
+        <tr>
+            <th>exercise En</th>
+            <td>{{$performance->exercise['titleEN']}}</td>
+            <td></td>
+            <th>exercise NL</th>
+            <td>{{$performance->exercise['titleNL']}}</td>
+        </tr>
+        <tr>
+            <td><br></td>
+        </tr>
+    </tr>
+    @endforeach
     </table>
 @endsection
+</div>
+
