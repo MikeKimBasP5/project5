@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\exercise;
+use App\Models\performance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExercisesController extends Controller
 {
@@ -23,7 +25,15 @@ class ExercisesController extends Controller
      */
     public function indexWeb()
     {
-        return view('exercises.index', ['exercises' => exercise::all()]);
+        //A normal user goes to /exercises they can't just access it. You have to be admin for it to acces.
+        
+        if(Auth::user()->hasRole('admin')){
+
+            return view('exercises.index', ['exercises' => exercise::all()]);
+        }else{
+            $id = Auth::id();
+            return redirect()->route('performances.index');
+        }
     }
     /**
      * Show the form for creating a new resource.
