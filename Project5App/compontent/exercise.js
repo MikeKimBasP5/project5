@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 
 const ExerciseScreen = ({ route, navigation }) => {
   let text = route.params.data.instructionEN.replace(/\\n/g,'\n');
-  return (
+  return ( //return single exercise in english with a GIF and instruction
     <View style={styles.container}>
       <Text style={styles.header}>{route.params.data.titleEN}</Text>
       <Image

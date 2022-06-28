@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View, Button, Linking } from 'react-native';
 
-const App = () => {
+const App = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Settings</Text>

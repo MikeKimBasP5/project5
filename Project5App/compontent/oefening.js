@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 
 const OefeningScreen = ({ route, navigation }) => {
   let text = route.params.data.instructionNL.replace(/\\n/g,'\n');
-  return (
+  return ( //return single exercise in dutch with a GIF and instruction
     <View style={styles.container}>
       <Text style={styles.header}>{route.params.data.titleNL}</Text>
       <Image
