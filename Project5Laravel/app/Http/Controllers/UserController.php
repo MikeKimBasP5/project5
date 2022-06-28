@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\performance;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-
     public function indexFunction(Request $request, $id)
     {
         return performance::where('user_id',$id)->get(); 
@@ -18,9 +19,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexWeb()
     {
-        //
+        if(Auth::user()->hasRole('admin')){
+
+            return view('users.index', ['users' => User::all()]);
+        }else{
+            $id = Auth::id();
+            return redirect()->route('performances.index');
+        }
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ExercisesController;
 use App\Http\Controllers\PerformanceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,5 +45,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/performances/create', [PerformanceController::class, 'storeWeb'])->Name('performances.store');
     Route::delete('/performances/{id}', [PerformanceController::class, 'destroy'])->Name('performances.destroy');
     Route::get('/users/{id}/performances', [PerformanceController::class, 'indexFunctionWeb'])->Name('performances.indexfunction');
+
+    //users ofzo
+    Route::get('/users', [UserController::class, 'indexWeb'])->name('users.index');
+    Route::get('/users/create', [UserController::class, 'createWeb'])->Name('users.create');
+    Route::put('/users/{id}', [UserController::class, 'update'])->Name('users.update');
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->Name('users.edit');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->Name('users.destroy');
+
 });
 require __DIR__ . '/auth.php';

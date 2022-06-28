@@ -20,6 +20,7 @@
                 </div>
                 <x-button onClick="document.location.href='{{route('performances.index')}}'">performances</x-button>
                 <x-button onClick="document.location.href='{{route('exercises.index')}}'">exercises</x-button>
+                <x-button onClick="document.location.href='{{route('users.index')}}'">users</x-button>
             </div>
         </div>
     </div>
