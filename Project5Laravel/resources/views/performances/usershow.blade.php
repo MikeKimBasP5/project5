@@ -9,32 +9,33 @@
     <h1></h1>
     <table class="sm: text-sm md:table-fixed w-full text-center" >
     @foreach($performances as $performance)
+    
     <tr class="border">
         <tr>
             <td><br></td>
         </tr>  
-        <tr>
+        <tr class="bg-teal-300">
             <th>id</th>
             <td>{{$performance->id}}</td>
             <td>&nbsp;</td>
             <th>Start time</th>
             <td>{{date('H:i:s', strtotime($performance->startTime))}}</td>
         </tr>
-        <tr>
+        <tr class="bg-teal-200">
             <th>Date</th>
             <td>{{$performance->date}}</td>
             <td></td>
             <th>Finish time</th>
             <td>{{date('H:i:s', strtotime($performance->finishTime))}}</td>
         </tr>
-        <tr>
+        <tr class="bg-teal-100">
             <th>Reps</th>
             <td>{{$performance->reps}}</td>
             <td></td>
             <th>User</th>
             <td>{{$performance->user['name']}}</td>
         </tr>
-        <tr>
+        <tr class="bg-teal-50">
             <th>exercise En</th>
             <td>{{$performance->exercise['titleEN']}}</td>
             <td></td>
@@ -45,6 +46,7 @@
             <td><br></td>
         </tr>
     </tr>
+    
     @endforeach
     </table>
 @endsection
