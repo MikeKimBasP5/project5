@@ -146,7 +146,7 @@ class PerformanceController extends Controller
      */
     public function destroy($id)
     {
-        performance::destroy($id);
+        performance::destroy($id); 
         return redirect()->route('performances.index');
     }
 public function indexFunctionWeb(Request $request, $id)

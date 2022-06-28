@@ -32,6 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/exercises/create', [ExercisesController::class, 'createWeb'])->Name('exercises.create');
     Route::get('/exercises', [ExercisesController::class, 'indexWeb'])->name('exercises.index');
 
+    Route::put('/exercises/{id}', [ExercisesController::class, 'update'])->Name('exercises.update');
+    Route::get('/exercises/{id}/edit', [ExercisesController::class, 'edit'])->Name('exercises.edit');
+
     Route::post('/exercises/create', [ExercisesController::class, 'storeWeb'])->Name('exercises.store');
 
     Route::get('/performances/create', [PerformanceController::class, 'createWeb'])->Name('performances.create');

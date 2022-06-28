@@ -16,7 +16,7 @@
                     <td>{{ $exercise->titleNL }}</td>
                     <td>
                         <div class="inline-flex gap-1 mb-1">
-                            <form method="get">
+                            <form method="get" action="{{ route('exercises.edit', ['id' => $exercise->id]) }}">
                                 <x-button class="ml-3 bg-blue-500 md:w-32 w-16 place-content-center">
                                     {{ __('Wijzig') }}
                                 </x-button>

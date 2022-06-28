@@ -97,7 +97,9 @@ class ExercisesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $exercise = exercise::find($id);
+        return view('exercises.edit', ["exercise" => $exercise]);
+    
     }
 
     /**
@@ -110,6 +112,8 @@ class ExercisesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        exercise::find($id)->update($request->except(['_token', 'method']));
+        return redirect()->route('exercises.index');
     }
 
     /**
