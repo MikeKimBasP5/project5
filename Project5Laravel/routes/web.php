@@ -47,9 +47,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/users/{id}/performances', [PerformanceController::class, 'indexFunctionWeb'])->Name('performances.indexfunction');
 
     //users ofzo
+    Route::get('/users/create', [UserController::class, 'createWeb'])->Name('users.create');
     Route::get('/users', [UserController::class, 'indexWeb'])->name('users.index');
     Route::get('/users/{id}', [UserController::class, 'showWeb'])->Name('users.show');
-    Route::get('/users/create', [UserController::class, 'createWeb'])->Name('users.create');
+    
+    Route::post('/users/create', [UserController::class, 'storeWeb'])->Name('users.store');
     Route::put('/users/{id}', [UserController::class, 'updateWeb'])->Name('users.update');
     Route::get('/users/{id}/edit', [UserController::class, 'editWeb'])->Name('users.edit');
     Route::delete('/users/{id}', [UserController::class, 'destroyWeb'])->Name('users.destroy');
