@@ -110,6 +110,7 @@ class UserController extends Controller
      */
     public function destroyWeb($id)
     {
-        //
+        User::destroy($id); 
+        return redirect()->route('users.index');
     }
 }
