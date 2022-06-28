@@ -48,27 +48,27 @@
 
         {{--What the normal user sees and the admin.--}}
         <table class="flex justify-center">
-            <tr>
-                <td>Exercise name:</td>
+            <tr class="bg-lime-400">
+                <td>Exercise name:</td> 
                 <td style="width: 15vw;"></td>
                 <td>{{$performance->exercise['titleEN']}}</td>
             </tr>
-            <tr>
+            <tr class="bg-lime-300">
                 <td>Date of exercise:</td>
                 <td></td>
                 <td>{{$performance->date}}</td>
             </tr>
-            <tr>
+            <tr class="bg-lime-200">
                 <td>Start time:</td>
                 <td></td>
                 <td>{{date('H:i:s', strtotime($performance->startTime))}}</td>
             </tr>
-            <tr>
+            <tr class="bg-lime-100">
                 <td>Finish time:</td>
                 <td></td>
                 <td>{{date('H:i:s', strtotime($performance->finishTime))}}</td>
             </tr>
-            <tr>
+            <tr class="bg-lime-50">
                 <td>Reps:</td>
                 <td></td>
                 <td>{{$performance->reps}}</td>
