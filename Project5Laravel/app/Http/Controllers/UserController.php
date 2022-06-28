@@ -87,7 +87,8 @@ class UserController extends Controller
      */
     public function editWeb($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit', ["user" => $user]);
     }
 
     /**
@@ -99,7 +100,8 @@ class UserController extends Controller
      */
     public function updateWeb(Request $request, $id)
     {
-        //
+        User::find($id)->update($request->except(['_token', 'method']));
+        return redirect()->route('users.index');
     }
 
     /**

@@ -98,8 +98,7 @@ class ExercisesController extends Controller
     public function edit($id)
     {
         $exercise = exercise::find($id);
-        return view('exercises.edit', ["exercise" => $exercise]);
-    
+        return view('exercises.edit', ["exercise" => $exercise]);    
     }
 
     /**
