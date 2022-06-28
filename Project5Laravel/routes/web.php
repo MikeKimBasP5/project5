@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::put('/exercises/{id}', [ExercisesController::class, 'update'])->Name('exercises.update');
     Route::get('/exercises/{id}/edit', [ExercisesController::class, 'edit'])->Name('exercises.edit');
+    Route::delete('/exercises/{id}', [ExercisesController::class, 'destroy'])->Name('exercises.destroy');
 
     Route::post('/exercises/create', [ExercisesController::class, 'storeWeb'])->Name('exercises.store');
 

@@ -21,7 +21,7 @@
                                     {{ __('Wijzig') }}
                                 </x-button>
                             </form>
-                            <form method="post">
+                            <form method="post" action="{{route('exercises.destroy', ['id' => $exercise->id]) }}">
                                 @method('delete')
                                 @csrf
                                 <x-button class="ml-3 bg-red-500 md:w-20 w-16 place-content-center">

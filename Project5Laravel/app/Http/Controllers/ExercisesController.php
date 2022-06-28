@@ -125,5 +125,7 @@ class ExercisesController extends Controller
     public function destroy($id)
     {
         //
+        exercise::destroy($id); 
+        return redirect()->route('exercises.index');
     }
 }
