@@ -57,7 +57,7 @@ class exercisesSeeder extends Seeder
         ]);
 
         DB::table('exercises')->insert([
-            'titleEN' => 'Donkey kick',
+            'titleEN' => 'Donkey kicks',
             'titleNL' => 'Paardentrap',
             'instructionEN' => 'Step 1: Get down and set your hands under your shoulders and your knees under your hips. \n Step 2: Kick back with one leg. \n Step 3: Go back in the first position and repeat. \n Step 4: Switch legs and do the same exercise again.',
             'instructionNL' =>'Stap 1: Buk en plaats je handen onder je schouders en je knieën onder je heupen. \n Stap 2: Schop met een been naar achteren. \n Stap 3: Ga terug in de eerste positie en herhaal het schoppen. \n Stap 4: Verander van been en doe dezelfde oefening.',
