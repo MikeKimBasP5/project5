@@ -8,6 +8,7 @@ use App\Models\performance;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -50,7 +51,19 @@ class UserController extends Controller
      */
     public function storeWeb(Request $request)
     {
-        User::create($request->except('_token'));
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', Rules\Password::defaults()],
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => '1',
+        ]);
+
         return redirect()->route('users.index');
     }
 
@@ -112,7 +125,7 @@ class UserController extends Controller
      */
     public function destroyWeb($id)
     {
-        User::destroy($id); 
+        User::destroy($id);
         return redirect()->route('users.index');
     }
 }

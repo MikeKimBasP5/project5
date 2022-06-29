@@ -13,7 +13,7 @@
         <label for="email">E-mail</label>
         <input class="bg-gray-200"  name="email" type="text" required>
         <label for="password">Password</label>
-        <input class="bg-gray-200"  name="password" type="text" required>
+        <input class="bg-gray-200"  name="password" type="password" required>
         <br>
         <x-button class="cursor-pointer bg-green-400 ">Create</x-button>
     </form>
