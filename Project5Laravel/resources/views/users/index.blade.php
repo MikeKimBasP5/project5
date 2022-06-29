@@ -5,6 +5,13 @@
 
 @section('content')
 <div class="container ">
+<form method="get" class="text-center" action="{{route('users.create')}}">
+        <x-button class="ml-3 bg-green-500 w-full justify-center">
+            {{ __('Add') }}
+        </x-button>
+    </form>
+    <br>
+    
     <table class="text-left">
         <tr>
             <th>Id</th>
@@ -36,10 +43,6 @@
         @endforeach
 
     </table>
-    <form method="get" class="text-center" action="{{route('users.create')}}">
-        <x-button class="ml-3 bg-green-500 w-full justify-center">
-            {{ __('Add') }}
-        </x-button>
-    </form>
+    
 </div>
 @endsection
