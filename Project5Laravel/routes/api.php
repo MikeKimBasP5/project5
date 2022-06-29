@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthenticationController::class, 'logout']);
+    Route::get('/users/{id}/performances', [UserController::class, 'indexFunction']);
 });
 
-Route::get('users/{id}/performances', [UserController::class, 'indexFunction']);
+
+
