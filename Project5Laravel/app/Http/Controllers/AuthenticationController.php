@@ -10,18 +10,7 @@ class AuthenticationController extends Controller
 {
     public function register(Request $request)
     {
-        $attr = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
-        ]);
-
-        User::create([
-            'name' => $attr['name'],
-            'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
-        ]);
-        return response()->json(['message' => 'Registration successful'], 200);
+        return response()->json(['message' => 'Create an account trough the website.'], 200);
     }
 
     public function login(Request $request)
