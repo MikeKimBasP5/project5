@@ -9,14 +9,15 @@
         <form method="POST" class=" w-2/5 grid grid-rows-1 place-content-center" action="{{ route('exercises.update', ['id' => $exercise->id]) }}">
             @method('PUT')
             @csrf
+            <label for="titleEN">TitleEN:</label>
             <input class="bg-gray-200" name="titleEN" type="text" value="{{$exercise->titleEN}}">
-
+            <label for="titleNL">TitleNL:</label>
             <input class="bg-gray-200" name="titleNL" type="text" value="{{$exercise->titleNL}}">
-      
+            <label for="instructionEN">InstructionEN:</label>
             <textarea class="bg-gray-200" name="instructionEN" type="text">{{$exercise->instructionEN}}</textarea>
-
+            <label for="instructionNL">InstructionNL:</label>
             <textarea class="bg-gray-200" name="instructionNL" type="text">{{$exercise->instructionNL}}</textarea>
-
+            <label for="media">Media:</label>
             <input class="bg-gray-200"  name="media" type="url" value="{{$exercise->media}}">
 
             <br>
