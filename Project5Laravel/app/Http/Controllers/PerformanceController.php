@@ -63,7 +63,19 @@ class PerformanceController extends Controller
      */
     public function store(Request $request)
     {
-//
+        $request->validate([
+            'date'=>'required|date',
+            'startTime'=>'required',
+            'finishTime' => 'required|after:startTime',
+            'reps' => 'required|max:11',
+            'user_id' => 'required|max:20',
+            'exercise_id' => 'required|max:20'
+
+        ]);
+        $request->merge(["date"=>date('Y-m-d')]);
+        $request->merge(["startTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['startTime']))]);
+        $request->merge(["finishTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['finishTime']))]);
+        return performance::create($request->all());
     }
     /**
      * Store a newly created resource in storage.
@@ -146,7 +158,7 @@ class PerformanceController extends Controller
      */
     public function destroy($id)
     {
-        performance::destroy($id); 
+        performance::destroy($id);
         return redirect()->route('performances.index');
     }
 public function indexFunctionWeb(Request $request, $id)
