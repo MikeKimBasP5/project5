@@ -26,7 +26,7 @@ class ExercisesController extends Controller
     public function indexWeb()
     {
         //A normal user goes to /exercises they can't just access it. You have to be admin for it to acces.
-        
+
         if(Auth::user()->hasRole('admin')){
 
             return view('exercises.index', ['exercises' => exercise::all()]);
@@ -63,7 +63,14 @@ class ExercisesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titleEN'=>'required|max:191',
+            'titleNL'=>'required|max:191',
+            'instructionEN' => 'required|max:1000',
+            'instructionNL' => 'required|max:1000',
+            'media' => 'required|max:10000'
+        ]);
+        return exercise::create($request->all());
     }
 
         /**
@@ -98,7 +105,7 @@ class ExercisesController extends Controller
     public function edit($id)
     {
         $exercise = exercise::find($id);
-        return view('exercises.edit', ["exercise" => $exercise]);    
+        return view('exercises.edit', ["exercise" => $exercise]);
     }
 
     /**
@@ -124,7 +131,7 @@ class ExercisesController extends Controller
     public function destroy($id)
     {
         //
-        exercise::destroy($id); 
+        exercise::destroy($id);
         return redirect()->route('exercises.index');
     }
 }
