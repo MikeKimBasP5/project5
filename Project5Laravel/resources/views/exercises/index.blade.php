@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    {{ __('exercises') }}
+    {{ __('Exercises') }}
 @endsection
 
 @section('content')
@@ -19,14 +19,14 @@
                 <th>Title NL</th>
             </tr>
             @foreach ($exercises as $exercise)
-                <tr>
+                <tr onClick="document.location.href='{{route('exercises.show',[$exercise->id])}}'" class="hover:bg-blue-400 hover:cursor-pointer" >
                     <td>{{ $exercise->titleEN }}</td>
                     <td>{{ $exercise->titleNL }}</td>
                     <td>
                         <div class="inline-flex gap-1 mb-1">
                             <form method="get" action="{{ route('exercises.edit', ['id' => $exercise->id]) }}">
                                 <x-button class="ml-3 bg-blue-500 md:w-32 w-16 place-content-center">
-                                    {{ __('Wijzig') }}
+                                    {{ __('edit') }}
                                 </x-button>
                             </form>
                             <form method="post" action="{{route('exercises.destroy', ['id' => $exercise->id]) }}">

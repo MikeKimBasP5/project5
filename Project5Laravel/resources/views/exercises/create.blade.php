@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    {{ __('performance') }}
+    {{ __('Exercises') }}
 @endsection
 
 @section('content')

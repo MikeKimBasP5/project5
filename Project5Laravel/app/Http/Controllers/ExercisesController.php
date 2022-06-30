@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\exercise;
 use App\Models\performance;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,6 +86,27 @@ class ExercisesController extends Controller
         return redirect()->route('exercises.index');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function showweb($id)
+    {
+        if (exercise::find($id) === null) {
+            return redirect()->route('exercises.index');
+        } else {
+            if (Auth::user()->hasRole('admin')) {
+                return view('exercises.show', ['exercise' => exercise::find($id),
+                    'user' => User::all(),
+                    'exercises' => exercise::all()
+                ]);
+            } else {
+                return redirect()->route('performances.index');
+            }
+        }
+    }
     /**
      * Display the specified resource.
      *

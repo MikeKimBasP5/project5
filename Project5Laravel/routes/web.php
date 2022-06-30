@@ -30,9 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
     })->middleware(['auth'])->name('dashboard');
     Route::get('/adminpanel', function () {return view('dashboard');})->name('adminpanel');
 
+    Route::get('/exercises/{id}', [ExercisesController::class, 'showWeb'])->Name('exercises.show');
     Route::get('/exercises/create', [ExercisesController::class, 'createWeb'])->Name('exercises.create');
     Route::get('/exercises', [ExercisesController::class, 'indexWeb'])->name('exercises.index');
-
     Route::put('/exercises/{id}', [ExercisesController::class, 'update'])->Name('exercises.update');
     Route::get('/exercises/{id}/edit', [ExercisesController::class, 'edit'])->Name('exercises.edit');
     Route::delete('/exercises/{id}', [ExercisesController::class, 'destroy'])->Name('exercises.destroy');
@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/users/create', [UserController::class, 'createWeb'])->Name('users.create');
     Route::get('/users', [UserController::class, 'indexWeb'])->name('users.index');
     Route::get('/users/{id}', [UserController::class, 'showWeb'])->Name('users.show');
-    
+
     Route::post('/users/create', [UserController::class, 'storeWeb'])->Name('users.store');
     Route::put('/users/{id}', [UserController::class, 'updateWeb'])->Name('users.update');
     Route::get('/users/{id}/edit', [UserController::class, 'editWeb'])->Name('users.edit');

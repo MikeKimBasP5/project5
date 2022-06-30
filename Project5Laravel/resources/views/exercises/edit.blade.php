@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('title')
-    {{ __('performance') }}
+    {{ __('Exercises') }}
 @endsection
 
 @section('content')
     <div class="grid md:grid-cols-3 grid-cols-1 justify-items-center w-full">
         <div></div>
-        <form method="POST" class=" w-2/5 grid grid-rows-1 place-content-center" action="{{ route('exercises.update', ['id' => $exercise->id]) }}">
+        <form method="POST" class="w-full grid grid-rows-1 place-content-center" action="{{ route('exercises.update', ['id' => $exercise->id]) }}">
             @method('PUT')
             @csrf
             <label for="titleEN">TitleEN:</label>
@@ -21,7 +21,7 @@
             <input class="bg-gray-200"  name="media" type="url" value="{{$exercise->media}}">
 
             <br>
-            <x-button class="cursor-pointer bg-green-400 ">Edit</x-button>
+            <x-button class="cursor-pointer bg-green-400 text-center">Edit</x-button>
 
         </form>
         <div></div>
