@@ -41,7 +41,7 @@
         <td>{{$performance->reps}}</td>
         <td>
         <div class="inline-flex gap-1 mb-1">
-            <form  method="get">
+            <form  method="get" action="{{ route('performances.edit', ['id' => $performance->id]) }}">
                 <x-button class="ml-3 bg-blue-500 w-30">
                     {{ __('Edit') }}
                 </x-button>

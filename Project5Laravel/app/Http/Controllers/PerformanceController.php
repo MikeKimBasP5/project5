@@ -8,7 +8,7 @@ use App\Models\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PerformanceController extends Controller
+class   PerformanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -88,6 +88,7 @@ class PerformanceController extends Controller
 
         $request->merge(["startTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['startTime']))]);
         $request->merge(["finishTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['finishTime']))]);
+
         performance::create($request->except('_token'));
         return redirect()->route('performances.index');
     }
@@ -135,7 +136,8 @@ class PerformanceController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        return view('performances.edit', ["performance" => performance::find($id), "exercises"=>exercise::all()]);
     }
 
     /**
@@ -143,11 +145,14 @@ class PerformanceController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->merge(["startTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['startTime']))]);
+        $request->merge(["finishTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['finishTime']))]);
+        performance::find($id)->update($request->except(['_token', 'method']));
+        return redirect()->route('performances.index');
     }
 
     /**

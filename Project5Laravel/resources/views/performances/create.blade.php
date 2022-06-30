@@ -6,7 +6,7 @@
 @section('content')
     <div class="grid md:grid-cols-3 grid-cols-1 justify-items-center w-full">
         <div></div>
-    <form method="POST" class=" w-2/5 grid grid-rows-1 place-content-center" action="{{ route('performances.store') }}">
+    <form method="POST" class=" w-2/5 grid grid-rows-1 place-content-center" action="{{ route('performances.storeweb') }}">
         @csrf
         <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
         <label for="date">Date:</label>
