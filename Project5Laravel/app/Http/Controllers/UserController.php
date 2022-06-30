@@ -52,9 +52,9 @@ class UserController extends Controller
     public function storeWeb(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', Rules\Password::defaults()],
+            'name' => ['required', 'string', 'max:191'],
+            'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
+            'password' => ['required', 'max:191'],
         ]);
 
         User::create([
@@ -113,10 +113,12 @@ class UserController extends Controller
      */
     public function updateWeb(Request $request, $id)
     {
+        
+        $request->merge(["password" => Hash::make($request->password)]);
+        
         User::find($id)->update($request->except(['_token', 'method']));
         return redirect()->route('users.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
