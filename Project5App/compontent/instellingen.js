@@ -6,7 +6,7 @@ const App = ({navigation}) => {
       <Text style={styles.header}>Instellingen</Text>
       <Text style={styles.btn} onPress={() => { navigation.navigate("web") }}>Login</Text>
       <Text></Text>
-      <Text style={styles.btn}>English</Text>
+
     </View>
   );
 }

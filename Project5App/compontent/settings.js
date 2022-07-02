@@ -1,13 +1,14 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer} from '@react-navigation/native';
 import { StyleSheet, Text, View, Button, Linking } from 'react-native';
 
 const App = ({navigation}) => {
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Settings</Text>
         <Text style={styles.btn} onPress={() => { navigation.navigate("web") }}>Login</Text>
       <Text></Text>
-      <Text style={styles.btn}>Nederlands</Text>
+
     </View>
   );
 }
