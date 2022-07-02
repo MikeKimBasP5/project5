@@ -14,7 +14,14 @@ class UserController extends Controller
 {
     public function indexFunction(Request $request, $id)
     {
-        return performance::where('user_id', $id)->get();
+        $request->user()->currentAccessToken()->delete();
+        $response = [
+            'success' => true,
+            'data'    =>  performance::where('user_id', $id)->get(),
+            'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'token_type' => 'Bearer'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -113,9 +120,9 @@ class UserController extends Controller
      */
     public function updateWeb(Request $request, $id)
     {
-        
+
         $request->merge(["password" => Hash::make($request->password)]);
-        
+
         User::find($id)->update($request->except(['_token', 'method']));
         return redirect()->route('users.index');
     }

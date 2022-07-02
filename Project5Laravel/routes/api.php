@@ -29,8 +29,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthenticationController::class, 'logout']);
     Route::get('/users/{id}/performances', [UserController::class, 'indexFunction']);
-    Route::apiResource('exercises', ExercisesController::class)->parameters(['exercises' => 'exercise'])->except(['index','show']);
-    Route::apiResource('performances',PerformanceController::class)->parameters(['performances' => 'performance'])->except(['index','show']);
+    Route::apiResource('exercises', ExercisesController::class)->parameters(['exercises' => 'exercise'])->only(['store']);
+    Route::apiResource('performances',PerformanceController::class)->parameters(['performances' => 'performance'])->only(['store']);
 });
 
 

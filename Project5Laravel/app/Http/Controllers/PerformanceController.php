@@ -63,6 +63,7 @@ class   PerformanceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->user()->currentAccessToken()->delete();
         $request->validate([
             'date'=>'required|date',
             'startTime'=>'required',
@@ -75,7 +76,14 @@ class   PerformanceController extends Controller
         $request->merge(["date"=>date('Y-m-d')]);
         $request->merge(["startTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['startTime']))]);
         $request->merge(["finishTime"=>date('Y-m-d H:i:s', strtotime($request['date'].$request['finishTime']))]);
-        return performance::create($request->all());
+        $response = [
+            'success' => true,
+            'data'    => performance::create($request->all()),
+            'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'token_type' => 'Bearer'
+        ];
+
+        return response()->json($response, 200);
     }
     /**
      * Store a newly created resource in storage.

@@ -60,10 +60,11 @@ class ExercisesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
+        $request->user()->currentAccessToken()->delete();
         $request->validate([
             'titleEN'=>'required|max:191',
             'titleNL'=>'required|max:191',
@@ -71,7 +72,13 @@ class ExercisesController extends Controller
             'instructionNL' => 'required|max:1000',
             'media' => 'required|max:10000'
         ]);
-        return exercise::create($request->all());
+        $response = [
+            'success' => true,
+            'data'    => exercise::create($request->all()),
+            'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'token_type' => 'Bearer'
+        ];
+        return response()->json($response, 200);
     }
 
         /**
