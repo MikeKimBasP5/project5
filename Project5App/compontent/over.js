@@ -4,7 +4,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Over</Text>
-      <Text style={styles.text}>Deze applicatie is gemaakt om progressie bij te houden over oefeningen zowel is er informatie over de oefeningen.</Text>
+      <Text style={styles.text}>Deze applicatie is gemaakt om jouw eigen vooruitgang bij te houden. Hier kunt u ook informatie vinden over de oefeningen.</Text>
       <Text></Text>
       <Text style={styles.text}>Voor meer informatie kunt u contact opnemen met Summa-ICT</Text>
       <Text style={styles.version}> v0.0.1</Text>
